@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DACI Missing Info Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="principal-title"><h1>DACI Project Information</h1></div>
+    </header>
+    
+    <!--PROJECT INFORMATION FIELDSET-->
+
+    <main>
+        <form id="projectInfo">
+            <fieldset>
+                <legend><h3>General Data</h3></legend>
+                <label>
+                    Date <input type="date" value="" id="date">
+                </label><br>
+                <label>
+                    Nº of Plots <input type="number" value="">
+                </label><br>
+                <label>
+                    Project Name <input type="text" value="">
+                </label><br>
+                <label>
+                    DACI Reference <input type="text" value="">
+                </label><br>
+                <label>
+                    Client Name <input type="text" value="">
+                </label><br>
+                <label>
+                    Client Reference <input type="text" value="">
+                </label><br>
+                <label>
+                    Asset Value <input type="text" value="">
+                </label><br>
+                <label>
+                    Designer Name <input type="text" value="">
+                </label><br>
+                <label>
+                    Address <input type="text" value="">
+                </label><br>
+                <label>
+                    Grid Reference <input type="text" value="">
+                    <button type="button"><a href="https://gridreferencefinder.com" target="_blank" rel="noopener noreferrer">Grid Reference</a></button>
+                </label>
+                <br>
+                <label>
+                    OS Maps <input type="text" value="">
+                </label><br>
+                <label>
+                    Future Development <input type="checkbox" value="">
+                </label><br>
+            </fieldset>
+
+            <!--DEVELOPER DETAILS FIELDSET-->
+
+            <fieldset>
+                <legend><h3>Legal Details</h3></legend>
+                <fieldset>
+                    <legend><h4>Developer Details</h4></legend>
+                <label>
+                    Company name <input type="text" id="devCompanyName" value="">
+                </label><br>
+                <label>
+                    Adress <input type="text" id="devAddress" value="">
+                </label><br>
+                <label>
+                    Contact name <input type="text" id="devContactName" value="">
+                </label><br>
+                <label>
+                    Phone <input type="number" class="input-custom-width" id="devPhone" value="">
+                </label><br>
+                <label>
+                    E-mail <input type="email" id="devEmail" value="">
+                </label><br>
+                </fieldset>
+
+                <!--BUTTON FOR COPY INFORMATION FROM DEVELOPER TO LANDOWNER-->
+
+                <div class="copy-btn"><button type="button" class="copy-btn-class" id="copyInfo" onclick="copyDeveloperDetails()">Copy Developer Details below</button></div>
+
+                <!--LANDOWNER DETAILS FIELDSET-->
+
+                <fieldset>
+                    <legend><h4>Landowner Details</h4></legend>
+                <label>
+                    Company name <input type="text" id="landCompanyName" value="">
+                </label><br>
+                <label>
+                    Adress <input type="text" id="landAddress" value="">
+                </label><br>
+                <label>
+                    Contact name <input type="text" id="landContactName" value="">
+                </label><br>
+                <label>
+                    Phone <input type="number" id="landPhone" value="">
+                </label><br>
+                <label>
+                    E-mail <input type="email" id="landEmail" value="">
+                </label><br>
+                </fieldset>
+
+                <!--LANDOWNER SOLICITOR FIELDSET-->
+
+                <fieldset>
+                    <legend><h4>Landowner Solicitor Details</h4></legend>
+                <label>
+                    Company name <input type="text" value="">
+                </label><br>
+                <label>
+                    Adress <input type="text" value="">
+                </label><br>
+                <label>
+                    Contact name <input type="text" value="">
+                </label><br>
+                <label>
+                    Phone <input type="number" value="">
+                </label><br>
+                <label>
+                    E-mail <input type="email" value="">
+                </label><br>
+                </fieldset>
+                
+            </fieldset>
+
+            <!--MANDATORY INFORMATION FIELDSET-->
+
+            <fieldset>
+                <legend><h3>Mandatory Information</h3></legend>
+                <label>
+                    <input type="checkbox" id="loaCheckbox"> Letter of Autority
+                </label><br>
+                <label>
+                    <input type="checkbox" id="siteLayout" value="Site Layout in DWG"> Site Layout in DWG
+                </label><br>
+                <label>
+                    <input type="checkbox" id="drainage" value="Drainage" onclick="toggleDrainageSubOptions('drainage', 'drainageSubOptions')"> Drainage
+                </label><br>
+                <div id="drainageSubOptions">
+                    <label>
+                        <input type="checkbox" id="subDrainage1" name="drainageOptions" value="Drainage DWG file"> DWG File
+                    </label><br>
+                    <label>
+                        <input type="checkbox" id="subDrainage2" name="drainageOptions" value="Drainage PDF file"> PDF File
+                    </label><br>
+                </div>
+                <label>
+                    <input type="checkbox" id="meterPos" value="Meter Position" onclick="toggleMeterSubOptions('meterPos','meterSubOptions')"> Meter position
+                </label><br>
+                <div id="meterSubOptions">
+                    <label>
+                        <input type="checkbox" id="subMeter1" name="meterPosOptions" value="Meter position DWG file"> DWG File
+                    </label><br>
+                    <label>
+                        <input type="checkbox" id="subMeter2" name="meterPosOptions" value="Meter position PDF file"> PDF File
+                    </label><br>
+                </div>
+                <label>
+                    <input type="checkbox" id="permPavement" value="Permeable pavement" onclick="togglePavementSubOptions('permPavement', 'pavementSubOptions')"> Permeable pavement
+                </label><br>
+                <div id="pavementSubOptions">
+                    <label>
+                        <input type="checkbox" name="permPavementOptions" value="Permeable pavement section details"> Section Details
+                    </label><br>
+                </div>
+                <label>
+                    <input type="checkbox" id="culverts" value="Culverts" onclick="toggleCulvertSubOptions('culverts', 'culvertSubOptions')"> Culverts
+                </label><br>
+                <div id="culvertSubOptions">
+                    <label>
+                        <input type="checkbox" name="culvertsOptions" value="Culvert section details"> Section Details
+                    </label><br>
+                </div>
+                <label>
+                    <input type="checkbox" id="attTank" value="Attenuation Tank" onclick="toggleTankSubOptions('attTank', 'tankSubOptions')"> Attenuation Tank
+                </label><br>
+                <div id="tankSubOptions">
+                    <label>
+                        <input type="checkbox" name="attTankOptions" value="Attenuation Tank depth of cover"> Depth of cover
+                    </label><br>
+                </div>
+                <label>
+                    <input type="checkbox" id="assValue" value="Asset Value in PDF"> Asset Value in PDF
+                </label><br>
+                <label>
+                    <input type="checkbox" id="conPlan" value="Conveyancing Plan"> Conveyancing Plan
+                </label><br>
+                <label>
+                    <input type="checkbox" id="accSchedule" value="Accommodation Schedule"> Accommodation Schedule
+                </label><br>
+                <label>
+                    <input type="checkbox" id="s38" value="S38 Plan"> S38 Plan
+                </label><br>
+                <label>
+                    <input type="checkbox" id="s278" value="S278 Plan"> S278 Plan
+                </label><br>
+                <label>
+                    <input type="checkbox" id="siteExPlan" value="Site execution plan"> Site execution plan
+                </label><br>
+            </fieldset>
+
+            <div class="next-btn">
+                <button type="button" class="hvr-grow" onclick="validateForm()">Confirm & choose Utilities</button>
+            </div>
+        </form>
+        <!--Div donde aparece el texto de la mandatory info faltante-->
+        <fieldset class="missingInfo-fieldset"><div id="missingMandatoryInfo"></div></fieldset>
+
+        <!--Boton de seccion ELECTRIC-->
+    <div class="sec-btn-align">
+        <button type="button" class="sec-btn" onclick="toggleSubButtonsElec('electricSubBtns')">Electric</button>
+    </div>
+
+        <!--Botones subseccion ELECTRIC-->
+    <div id="electricSubBtns" class="sub-btn">
+        <button type="button" class="sub-elec" onclick="toggleElecForm('elecHV')">Electric HV</button>
+        <button type="button" class="sub-elec" onclick="toggleElecForm('elecLV')">Electric LV</button>
+    </div>
+    
+        <!--F0RMULARIO DE ELECTRIC HV Y LV-->
+
+            <form id="HVForm">
+                <fieldset>
+                    <legend>Electric HV Form</legend>
+                    <label>
+                        <input type="checkbox" name="electric" id="electricCheckbox" value="Electric POC" onclick="toggleSubOptions('electricCheckbox', 'elecPOCSubOptions')"> Electric POC
+                    </label><br>
+                    <div id="elecPOCSubOptions">
+                        <label>
+                            <input type="checkbox" id="electricCheckbox_Design_Document"  value="Design Document"> Design Document
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="electricCheckbox_Quote_Letter" value="Quote Letter"> Quote Letter
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="electricCheckbox_POC_Load" value="POC Load"> POC Load
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="electricCheckbox_Diversion_or_Reinforcement_Works" value="Diversion or Reinforcement Works"> Diversion or Reinforcement Works
+                        </label><br>
+                    </div>
+            <div id="substationEnclosureSection">
+                    <label>
+                        <input type="checkbox" name="electric" id="subCheckbox" value="Substation" onclick="substationSubOptions('subCheckbox','substationSubOptions')"> Substation
+                    </label><br>
+                <div id="substationSubOptions">
+                    <label>
+                        <input type="checkbox" id="subCheckbox_Substation_Location" value="Substation Location"> Substation Location
+                    </label><br>
+                    <label>
+                        <input type="checkbox" id="subCheckbox_Substation_Enclosure" value="Substation Enclosure" onclick="subEnclosureSubOptions()"> Substation Enclosure
+                    </label>
+                    <div id="subEnclosureSubOptions">
+                        <label>
+                            <input type="radio" id="subCheckbox_Substation_Enclosure_GRP" name="subEnclosureCheckboxOptions" value="GRP"> GRP
+                        </label><br>
+                        <label>
+                            <input type="radio" id="subCheckbox_Substation_Enclosure_Brick_Built" name="subEnclosureCheckboxOptions" value="Brick Built"> Brick Built
+                        </label><br>
+                    </div>
+                </div>
+            </div>
+                    <label>
+                        <input type="checkbox" name="electric" id="MSDBCheckbox" value="MSDB" onclick="MSDBSubOptions('MSDBCheckbox', 'MSDBSubOptions')"> MSDB
+                    </label><br>
+                    <div id="MSDBSubOptions">
+                        <label>
+                            <input type="checkbox" id="MSDBCheckbox_Floor_plans_in_DWG" value="Floor plans in DWG"> Floor plans in DWG
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="MSDBCheckbox_MSDB_location" value="MSDB location"> MSDB location
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="MSDBCheckbox_Landlord_Supplies_loads_&_phases" value="Landlord Supplies loads & phases"> Landlord Supplies loads & phases
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="MSDBCheckbox_Meter_location" value="Meter location" onclick="MSDBMeterSubOptions()"> Meter location
+                        </label><br>
+                        <div id="MSDBMeterSubOptions">
+                            <label>
+                                <input type="radio" name="MeterLocation" id="MSDBCheckbox_Meter_location_Communaly_in_MSDB_room_at_ground_floor" value="Communaly in MSDB room at ground floor"> Communaly in MSDB room at ground floor
+                            </label><br>
+                            <label>
+                                <input type="radio" name="MeterLocation" id="MSDBCheckbox_Meter_location_Communaly_in_riser_rooms_at_each_floor" value="Communaly in riser rooms at each floor"> Communaly in riser rooms at each floor
+                            </label><br>
+                            <label>
+                                <input type="radio" name="MeterLocation" id="MSDBCheckbox_Meter_location_On_each_flat" value="On each flat"> On each flat
+                            </label><br>
+                        </div>
+                    </div>
+                    <label>
+                        <input type="checkbox" name="electric" id="PVCheckbox" value="PV Panels" onclick="PVSubOptions()"> PV Panels
+                    </label><br>
+                    <div id="PVSubOptions">
+                        <label>
+                            <input type="radio" id="PVCheckbox_With_Export_load" name="PVCheckboxOptions" value="With Export load" onclick="PVExportLoadSubOptions('PVCheckbox_With_Export_load','PVExportLoadSubOptions')"> With Export load
+                        </label><br>
+                    <div id="PVExportLoadSubOptions">
+                        <label>
+                            <input type="number" name="loadPerPlot" value=""> kVA x Plot
+                        </label><br>
+                    </div>
+                        <label>
+                            <input type="radio" id="PVCheckbox_Not_Export" name="PVCheckboxOptions" value="Not Export"> Not export
+                        </label><br>
+                    </div>
+                    <label>
+                        <input type="checkbox" name="electric" id="SLCheckbox" value="Street Lights" onclick="SLSubOptions('SLCheckbox','SLSubOptions')"> Street Lights
+                    </label><br>
+                    <div id="SLSubOptions">
+                        <label>
+                            <input type="checkbox" id="SLCheckbox_Street_lights_plan_in_DWG" name="SLCheckboxOptions" value="Street lights plan in DWG"> Street lights plan in DWG
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="SLCheckbox_Street_lights_type_(public_&_private)" name="SLCheckboxOptions" value="Street lights type (public & private)"> Street lights type (public & private)
+                        </label><br>
+                    </div>
+                    <label>
+                        <input type="checkbox" name="electric" id="addCheckbox" value="Additional Loads" onclick="addSubOptions('addCheckbox','addSubOptions')"> Additional Loads
+                    </label><br>
+                    <div id="addSubOptions">
+                        <label>
+                            <input type="checkbox" name="addCheckboxOptions" id="addCheckbox_TBS_(Temporary_Building_Supply)" value="TBS (Temporary Building Supply)" onclick="TBSSubOptions('addCheckbox_TBS_(Temporary_Building_Supply)','TBSSubOptions')"> TBS (Temporary Building Supply)
+                        </label><br>
+                        <div id="TBSSubOptions">
+                            <label>
+                                <input type="checkbox" id="addCheckbox_TBS_(Temporary_Building_Supply)_Location_of_TBS" name="TBSSubCheckboxOptions" value="Location of TBS"> Location of TBS
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_TBS_(Temporary_Building_Supply)_TBS_Load" name="TBSSubCheckboxOptions" value="TBS Load"> TBS Load
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_TBS_(Temporary_Building_Supply)_Phases_of_supply_for_TBS" name="TBSSubCheckboxOptions" value="Phases of supply for TBS"> Phases of supply
+                            </label><br>
+                        </div>
+                        <label>
+                            <input type="checkbox" name="addCheckboxOptions" id="addCheckbox_FP_(Feeder_Pilar)" value="FP (Feeder Pilar)" onclick="FPSubOptions('addCheckbox_FP_(Feeder_Pilar)','FPSubOptions')"> FP (Feeder Pilar)
+                        </label><br>
+                        <div id="FPSubOptions">
+                            <label>
+                                <input type="checkbox" id="addCheckbox_FP_(Feeder_Pilar)_Location_of_FP" name="FPSubCheckboxOptions" value="Location of FP"> Location of FP
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_FP_(Feeder_Pilar)_FP_Load" name="FPSubCheckboxOptions" value="FP Load"> FP Load
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_FP_(Feeder_Pilar)_Phases_of_supply_for_FP" name="FPSubCheckboxOptions" value="Phases of supply for FP"> Phases of supply
+                            </label><br>
+                        </div>
+                        <label>
+                            <input type="checkbox" name="addCheckboxOptions" id="addCheckbox_HO_(Hyper_Optic)" value="HO (Hyper Optic)" onclick="HOSubOptions('addCheckbox_HO_(Hyper_Optic)','HOSubOptions')"> HO (Hyper Optic)
+                        </label><br>
+                        <div id="HOSubOptions">
+                            <label>
+                                <input type="checkbox" id="addCheckbox_HO_(Hyper_Optic)_Location_of_HO" name="FPSubCheckboxOptions" value="Location of HO"> Location of HO
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_HO_(Hyper_Optic)_HO_Load" name="FPSubCheckboxOptions" value="HO Load"> HO Load
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_HO_(Hyper_Optic)_Phases_of_supply_for_HO" name="FPSubCheckboxOptions" value="Phases of supply for HO"> Phases of supply
+                            </label><br>
+                        </div>
+                        <label>
+                            <input type="checkbox" name="addCheckboxOptions" id="addCheckbox_EVC_(Electric_Vehicle_Charger)" value="EVC (Electric Vehicle Charger)" onclick="EVCSubOptions()"> EVC (Electric Vehicle Charger)
+                        </label><br>
+                        <div id="EVCSubOptions">
+                            <label>
+                                <input type="radio" id="addCheckbox_EVC_(Electric_Vehicle_Charger)_Fast_Type" name="EVCSubCheckboxOptions" value="Fast Type"> Fast Type
+                            </label><br>
+                            <label>
+                                <input type="radio" id="addCheckbox_EVC_(Electric_Vehicle_Charger)_Slow_Type" name="EVCSubCheckboxOptions" value="Slow Type"> Slow Type
+                            </label><br>
+                        </div>
+                        <label>
+                            <input type="checkbox" name="addCheckboxOptions" id="addCheckbox_Pumping_Station" value="Pumping Station" onclick="pumpSubOptions('addCheckbox_Pumping_Station','pumpSubOptions')"> Pumping Station
+                        </label><br>
+                        <div id="pumpSubOptions">
+                            <label>
+                                <input type="checkbox" id="addCheckbox_Pumping_Station_Motor_details" name="pumpSubCheckboxOptions" value="Motor details"> Motor details
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_Pumping_Station_Exact_location_of_Pumping_Station" name="pumpSubCheckboxOptions" value="Exact location of Pumping Station"> Exact location of Pumping Station
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_Pumping_Station_Phases_of_supply_for_Pump" name="pumpSubCheckboxOptions" value="Phases of supply for Pump"> Phases of supply
+                            </label><br>
+                        </div>
+                        <label>
+                            <input type="checkbox" name="addCheckboxOptions" id="addCheckbox_Commercial_Unit" value="Commercial Unit" onclick="comSubOptions('addCheckbox_Commercial_Unit','comSubOptions')"> Commercial Unit
+                        </label><br>
+                        <div id="comSubOptions">
+                            <label>
+                                <input type="checkbox" id="addCheckbox_Commercial_Unit_Location_of_Commercial" name="comSubCheckboxOptions" value="Location of Commercial"> Location of Commercial
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_Commercial_Unit_Load_for_Commecial" name="comSubCheckboxOptions" value="Load for Commercial"> Load for Commercial
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_Commercial_Unit_Phases_of_supply_for_commercial" name="comSubCheckboxOptions" value="Phases of supply for commercial"> Phases of supply for commercial
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="addCheckbox_Commercial_Unit_Building_Construction_Type" name="comSubCheckboxOptions" value="Building Construction Type"> Building Construction Type
+                            </label><br>
+                            </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        <!--Boton de seccion GAS-->
+    <div class="sec-btn-align">
+        <button type="button" class="sec-btn" onclick="toggleSubButtonsGas('gasSubBtns')">Gas</button>
+    </div>
+
+        <!--Botones subseccion GAS-->
+    <div id="gasSubBtns" class="sub-btn">
+        <button type="button" class="sub-gas" onclick="toggleGasForm('gasMP')">Gas MP</button>
+        <button type="button" class="sub-gas" onclick="toggleGasForm('gasLP')">Gas LP</button>
+    </div>
+    
+        <!--Formularios de GAS-->
+
+            <form id="MPForm">
+                <fieldset>
+                    <legend>MP Gas Form</legend>
+                    <label>
+                        <input type="checkbox" name="gas" id="gasCompanyCheckbox" value="Gas company Reference"> Gas company Reference
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="gas" id="CSEPCheckbox" value="CSEP Information" onclick="CSEPSubOptions('CSEPCheckbox','CSEPSubOptions')"> CSEP Information
+                    </label><br>
+                    <div id="CSEPSubOptions">
+                        <label>
+                            <input type="checkbox" id="CSEPCheckbox_Coordinates" name="CSEPCheckboxOptions" value="Coordinates"> Coordinates
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="CSEPCheckbox_Type_of_connection" name="CSEPCheckboxOptions" value="Type of connection"> Type of connection
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="CSEPCheckbox_CSEP_Pressure" name="CSEPCheckboxOptions" value="CSEP Pressure"> CSEP Pressure
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="CSEPCheckbox_Minimum_pressure" name="CSEPCheckboxOptions" value="Minimum pressure"> Minimum Pressure
+                        </label><br>
+                    </div>
+                    <label>
+                        <input type="checkbox" name="gas" id="gasSupCheckbox" value="Gas Supplier" onclick="gasSupSubOptions('gasSupCheckbox','gasSupSubOptions')"> Gas Supplier
+                    </label><br>
+                    <div id="gasSupSubOptions">
+                        <label>
+                            <input type="text" name="gasSupCheckboxOptions" value="" placeholder="Gas Supplier name">
+                        </label>
+                    </div>
+                    <label>
+                        <input type="checkbox" name="gas" id="meteringTypeCheckbox" value="Metering Type" onclick="gasMeteringTypeSubOptions()"> Metering Type
+                    </label><br>
+                    <div id="gasMeteringTypeSubOptions">
+                        <label>
+                            <input type="radio" id="meteringTypeCheckbox_Smart" name="meteringTypeCheckboxOptions" value="Smart"> Smart
+                        </label><br>
+                        <label>
+                            <input type="radio" id="meteringTypeCheckbox_Dumb" name="meteringTypeCheckboxOptions" value="Dumb"> Dumb
+                        </label><br>
+                    </div>
+                    <label>
+                        <input type="checkbox" name="gas" id="commercialCheckbox" value="Commercial Plots" onclick="commercialSubOptions('commercialCheckbox','commercialSubOptions')"> Commercial Plots
+                    </label><br>
+                    <div id="commercialSubOptions">
+                        <label>
+                            <input type="checkbox" id="commercialCheckbox_Load_for_the_commercial_is_missing" name="commercialCheckboxOptions" value="Load for the commercial is missing"> Load for the commercial specified?
+                        </label><br>
+                    </div>
+                    <label>
+                        <input type="checkbox" name="gas" id="meterTypeCheckbox" value="Meter Type" onclick="gasMeterTypeSubOptions()"> Meters Type
+                    </label><br>
+                    <div id="gasMeterTypeSubOptions">
+                        <label>
+                            <input type="radio" id="meterTypeCheckbox_Meter_Box" name="meterTypeCheckboxOptions" value="Meter Box"> Meter Box
+                        </label><br>
+                        <label>
+                            <input type="radio" id="meterTypeCheckbox_Built_In" name="meterTypeCheckboxOptions" value="Built In"> Built In
+                        </label><br>
+                    </div>
+                <div id="PRISection">
+                    <label>
+                        <input type="checkbox" name="gas" id="PRICheckbox" value="PRI" onclick="PRISubOptions()"> PRI
+                    </label><br>
+                    <div id="PRISubOptions">
+                        <label>
+                            <input type="radio" id="PRICheckbox_Above_Ground" name="PRICheckboxOptions" value="Above Ground"> Above Ground
+                        </label><br>
+                        <label>
+                            <input type="radio" id="PRICheckbox_Below_Ground" name="PRICheckboxOptions" value="Below Ground"> Below Ground
+                        </label><br>
+                    </div>
+                </div>
+                </fieldset>
+            </form>
+
+        <!--Boton de seccion WATER-->
+    <div class="sec-btn-align">
+        <button type="button" class="sec-btn" onclick="toggleSubButtonsWater('waterSubBtns')">Water</button>
+    </div>
+
+        <!--Botones subseccion WATER-->
+    <div id="waterSubBtns" class="sub-btn">
+        <button type="button" class="sub-wat" onclick="toggleWaterForm('waterNAV')">Water NAV</button>
+        <button type="button" class="sub-wat" onclick="toggleWaterForm('waterSLA')">Water SLA</button>
+    </div>
+
+        <!--Formularios de WATER-->
+    
+        <form id="NAVForm">
+            <fieldset>
+                <legend>NAV Water Form</legend>
+                <label>
+                    <input type="checkbox" name="water" id="waterCompanyCheckbox" value="Water company Reference"> Water company Reference
+                </label><br>
+                <label>
+                    <input type="checkbox" name="water" id="riskCheckbox" value="Risk Assessment"> Risk Assessment
+                </label><br>
+                <label>
+                    <input type="checkbox" name="water" id="floodCheckbox" value="Flood Risk"> Flood Risk
+                    <button type="button"><a href="https://check-long-term-flood-risk.service.gov.uk/postcode" target="_blank" rel="noopener noreferrer">Gov.UK</a></button>
+                </label><br>
+                <label>
+                    <input type="checkbox" name="water" id="f10Checkbox" value="F10 Notification"> F10 Notification
+                </label><br>
+                <label>
+                    <input type="checkbox" name="water" id="EnvCheckbox" value="Environmental Report"> Environmental Report
+                </label><br>
+                <label>
+                    <input type="checkbox" name="water" id="materialCheckbox" value="Pipe Material is not Confirmed" onclick="materialSubOptions()"> Pipe Material Confirmed
+                </label><br>
+                <div id="materialSubOptions">
+                    <label>
+                        <input type="radio" id="materialCheckbox_PE/HPPE" name="materialCheckboxOptions" value="PE/HPPE"> PE/HPPE
+                    </label><br>
+                    <label>
+                        <input type="radio" id="materialCheckbox_Barrier_Pipe_(PEB)" name="materialCheckboxOptions" value="Barrier Pipe (PEB)"> Barrier Pipe (PEB)
+                    </label><br>
+                </div>
+            <div id="POCPlanSection">
+                <label>
+                    <input type="checkbox" name="water" id="WPOCCheckbox" value="Water POC Plan" onclick="WPOCSubOptions('WPOCCheckbox','WPOCSubOptions')"> Water POC Plan
+                </label><br>
+                <div id="WPOCSubOptions">
+                    <label>
+                        <input type="checkbox" id="WPOCCheckbox_Design_Document" name="WPOCCheckboxOptions" value="Design Document"> Design Document
+                    </label><br>
+                    <label>
+                        <input type="checkbox" id="WPOCCheckbox_POC_Letter" name="WPOCCheckboxOptions" value="POC Letter"> POC Letter
+                    </label><br>
+                </div>
+                <label>
+                    <input type="checkbox" name="water" id="NAVCheckbox" value="NAV Adoption"> NAV Adoption
+                </label><br>
+                </div>
+            </fieldset>
+        </form>
+
+<!-- BOTON PARA CONFIRMAR LOS FORMS DE ELEC, GAS Y WATER, REVISAR LOS CHECKBOX E IMPRIMIR POR PANTALLA LA MISSING INFO -->
+
+<div class="utilities-btn">
+    <button type="button" class="hvr-grow" id="validateUtilitiesBtn" onclick="finishButton()">Confirm Utilities Info</button>
+</div>
+
+<fieldset class="missingUtilities-fieldset"><div id="missingUtilitiesInfo"></div></fieldset>
+
+</main>
+
+    <footer>
+        <p>&copy; 2024 DACI Engineering Consultancy Ltd.</p>
+    </footer>
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqO7NNedVBgNwbQfq9R5ULt7g6OrMphRg",
+      authDomain: "daci-projects-info.firebaseapp.com",
+      projectId: "daci-projects-info",
+      storageBucket: "daci-projects-info.firebasestorage.app",
+      messagingSenderId: "685079270471",
+      appId: "1:685079270471:web:2d0d8c2dc8843e755bcd62",
+      measurementId: "G-V3DN09G1CL"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+</html>

@@ -1,0 +1,265 @@
+ul {
+  font-style: normal;
+  text-decoration: solid;
+  list-style-type: none;
+}
+
+#MSDBSubOptions, #PVSubOptions, #SLSubOptions, #addSubOptions, #substationSubOptions, #elecPOCSubOptions {
+  display: none; 
+  margin-left: 20px;
+}
+
+#layoutSubOptions, #drainageSubOptions, #meterSubOptions, #pavementSubOptions, #culvertSubOptions, #tankSubOptions {
+  display: none; 
+  margin-left: 20px;
+}
+
+#WPOCSubOptions, #materialSubOptions {
+  display: none;
+  margin-left: 20px;
+}
+
+#CSEPSubOptions, #gasSupSubOptions, #gasMeterTypeSubOptions, #commercialSubOptions, #gasMeteringTypeSubOptions, #PRISubOptions {
+  display: none;
+  margin-left: 20px;
+}
+
+#pumpSubOptions, #TBSSubOptions, #FPSubOptions, #HOSubOptions, #MSDBMeterSubOptions, #EVCSubOptions, #landlordSubOptions, #subEnclosureSubOptions, #comSubOptions {
+  display: none; 
+  margin-left: 40px;
+}
+
+.missingInfo-fieldset {
+  display: none;
+  background-color: white;
+}
+
+/* No mostrar botones ni formularios al iniciar página */
+.sub-btn {
+    display: none;
+    text-align: center;
+}
+
+.sec-btn-align {
+  display: none;
+  text-align: center;
+}
+
+#HVForm {
+  display: none;
+}
+
+#NAVForm {
+  display: none;
+}
+
+#MPForm {
+  display: none;
+}
+
+#PVExportLoadSubOptions {
+  display: none;
+  margin-left: 40px;
+}
+
+.missingUtilities-fieldset {
+  display: none;
+  background-color: white;
+}
+
+/* Color de fondo de la web */
+body {
+    background-color: forestgreen;
+    color: white;
+    font-size: 18px;
+}
+
+/* Todos los inputs son responsive */
+input[type="text"] {
+    width: 60%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Todos los inputs son responsive */
+input[type="date"] {
+    width: 30%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Todos los inputs son responsive */
+input[type="number"] {
+    width: 150px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Todos los inputs son responsive */
+input[type="email"] {
+    width: 30%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Centrar titulo principal */
+.principal-title {
+    text-align: center;
+}
+
+/* Centrar boton Next */
+.next-btn {
+    text-align: center;
+}
+
+/* Centrar boton Copy Developer Details */
+.copy-btn {
+  text-align: center;
+  margin: 5px;
+}
+
+/* Centrar boton confirm utilities */
+.utilities-btn {
+  display: none;
+  text-align: center;
+}
+
+.copy-btn-class {
+  color: white;
+  border: solid 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  vertical-align: middle;
+  background-color: #04AA6D;
+}
+
+.copy-btn-class:hover {
+  background-color: #46a049;
+}
+
+/* Button Grow para boton NEXT */
+.hvr-grow {
+    margin: 10px 10px 10px 10px;
+    border: solid 2px;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    background-color: #04AA6D;
+  }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: #46a049;
+  }
+
+  /* Button Grow para boton Electric */
+  .sec-btn {
+    margin: 10px 10px 10px 10px;
+    border: solid 2px;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    background-color: #04AA6D;
+  }
+
+  .sec-btn:hover, .sec-btn:focus, .sec-btn:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: rgb(59, 160, 66);
+  }
+  
+
+  /* Button Grow para sub botones Electric */
+  .sub-elec {
+    margin: 10px 10px 10px 10px;
+    border: solid 2px;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    background-color: #04AA6D;
+  }
+
+  .sub-elec:hover, .sub-elec:focus, .sub-elec:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: red;
+  }
+
+  /* Button Grow para sub botones Gas */
+  .sub-gas {
+    margin: 10px 10px 10px 10px;
+    border: solid 2px;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    background-color: #04AA6D;
+  }
+
+  .sub-gas:hover, .sub-gas:focus, .sub-gas:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: #f0eb52;
+  }
+
+  /* Button Grow para sub botones Water */
+  .sub-wat {
+    margin: 10px 10px 10px 10px;
+    border: solid 2px;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    background-color: #04AA6D;
+  }
+
+  .sub-wat:hover, .sub-wat:focus, .sub-wat:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: #4db7e8;
+  }
